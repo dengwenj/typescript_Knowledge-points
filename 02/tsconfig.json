@@ -16,5 +16,18 @@
 	],
 	"exclude": [
 		"./src/hello/**/*"
-	]
+	],
+	// 编译器的选项
+	"compilerOptions": {
+		// target 用来指定 ts 被编译为的 ES 的版本
+		"target": "es2015",
+		// module 指定要使用的模块化的规范
+		"module": "es2015",
+		// lib 用来指定项目中腰使用的裤
+		// "lib": []
+		// outDir 用来指定编译后文件所在的目录
+		"outDir": "./dist",
+		// 设置 outFile 后，所有的全局作用域中的代码会合并到同一个文件中
+		// "outFile": "./dist/app.js"
+	}
 }
