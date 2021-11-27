@@ -29,5 +29,15 @@
 		"outDir": "./dist",
 		// 设置 outFile 后，所有的全局作用域中的代码会合并到同一个文件中
 		// "outFile": "./dist/app.js"
+		// 是否对 js 文件进行编译，默认是 false
+		"allowJs": false,
+		// 是否检查 js 代码是否符合语法规范，默认是 false
+		"checkJs": false,
+		// 是否移除注释
+		"removeComments": false,
+		// 不生成编译后的文件
+		"noEmit": false,
+		// 当有错误时不生成编译后的文件
+		"noEmitOnError": true
 	}
 }
