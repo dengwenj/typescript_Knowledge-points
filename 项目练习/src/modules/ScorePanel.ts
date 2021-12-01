@@ -34,13 +34,5 @@ export default class ScorePanel {
     }
 }
 
-const s = new ScorePanel()
-s.addScore()
-s.addScore()
-s.addScore()
-s.addScore()
-s.addScore()
-s.addScore()
-s.addScore()
-s.addScore()
-s.addScore()
+
+

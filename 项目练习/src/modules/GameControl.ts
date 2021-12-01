@@ -12,6 +12,7 @@ export default class GameControl {
 
     // 创建一个属性来存储蛇的移动方向（也就是按键的方向）
     direction: string = '';
+    isLive: boolean = true
 
     constructor() {
         this.food = new Food;
@@ -30,13 +31,13 @@ export default class GameControl {
 
     keydowmHeader(e: KeyboardEvent) {
         this.direction = e.key;
-        console.log(e.key);
-
     }
 
     snakeRun() {
         let x = this.snake.X;
         let y = this.snake.Y;
+
+        this.checkEat(x, y)
 
         switch (this.direction) {
             case 'ArrowUp':
@@ -56,10 +57,23 @@ export default class GameControl {
                 x += 10;
                 break;
         }
+        try {
+            this.snake.X = x;
+            this.snake.Y = y;
+        } catch (e) {
+            alert('蛇撞墙了！');
+            this.isLive = false;
+        }
 
-        this.snake.X = x;
-        this.snake.Y = y;
-
-        setTimeout(this.snakeRun.bind(this), 500 - (this.scorePanel.level - 1) * 50);
+        this.isLive && setTimeout(this.snakeRun.bind(this), 500 - (this.scorePanel.level - 1) * 50);
     };
+
+    // 吃到食物
+    checkEat(x: number, y: number) {
+        if (this.food.X === x && this.food.Y === y) {
+            this.food.changFood();
+            this.scorePanel.addScore()
+            this.snake.addBody()
+        }
+    }
 }

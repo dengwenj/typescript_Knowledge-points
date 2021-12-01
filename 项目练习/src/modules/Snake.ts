@@ -21,10 +21,16 @@ class Snake {
     }
 
     set X(value) {
+        if (value < 0 || value > 290) {
+            throw new Error('蛇撞墙了');
+        }
         this.head.style.left = value + 'px';
     }
 
     set Y(value) {
+        if (value < 0 || value > 290) {
+            throw new Error('蛇撞墙了');
+        }
         this.head.style.top = value + 'px'
     }
 
